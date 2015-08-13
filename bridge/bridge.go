@@ -227,6 +227,11 @@ func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 			mapDefault(metadata, "tags", ""), b.config.ForceTags)
 	}
 
+	ip := mapDefault(metadata, "ip", "")
+	if ip != "" {
+		service.IP = ip
+	}
+
 	id := mapDefault(metadata, "id", "")
 	if id != "" {
 		service.ID = id
